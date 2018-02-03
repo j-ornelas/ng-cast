@@ -1,7 +1,7 @@
 angular.module('video-player').service('youTube', function($http) {
   // TODO
   
-  this.getRepo = function(query, callback) {
+  this.getRepo = _.debounce(function(query, callback) {
     return $http( {
       url: 'https://www.googleapis.com/youtube/v3/search',
       method: 'GET',
@@ -18,5 +18,6 @@ angular.module('video-player').service('youTube', function($http) {
     }, function errorCallback(response) {
       console.log('error!', response);
     });
-  };
+    
+  },500);
 });
