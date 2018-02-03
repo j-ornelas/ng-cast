@@ -7,13 +7,24 @@ angular.module('video-player').component('app', {
     this.videos = [];
     this.currentVideo = {};
     this.autoPlay = false;
+    this.pageStack = [];
+    this.nextPageToken;
+    this.prevQuery = '';
     this.setState = (result) => {
       this.videos = result.data.items;
-      this.currentVideo = result.data.items[0];
+      if (this.pageStack.length === 0) {
+        this.currentVideo = result.data.items[0];
+      }
+      this.nextPageToken = result.data.nextPageToken;
+      this.prevQuery = result.config.params.q;
     };
     
-    this.searchResults = (query) => {
-      youTube.getRepo(query, this.setState, this.autoPlay);
+    this.stackClear = () => {
+      this.pageStack = [];  
+    };
+
+    this.searchResults = (query, pageToken) => {
+      youTube.getRepo(query, this.setState, this.autoPlay, pageToken);
       
     };
     this.selectVideo = (video) => {
