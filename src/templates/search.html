@@ -1,4 +1,11 @@
 <form  class="search-bar form-inline">
+  
+  <!-- This will be the autoplay button: No Functionality -->
+  <button class="btn" ng-style="$ctrl.cssObj" ng-click="$ctrl.autoPlayClick()">
+    <span>Autoplay</span>
+  </button>
+  <!-- This will be the autoplay button: No Functionality -->
+
   <input ng-keydown="$event.keyCode === 13 && $ctrl.clearResult()" ng-change="$ctrl.result()"  ng-model="$ctrl.input" class="form-control" type="text" />
   <submit ng-click="$ctrl.clearResult()" class="btn">
     <span class="glyphicon glyphicon-search"></span>
