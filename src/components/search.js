@@ -1,7 +1,8 @@
 angular.module('video-player').component('search', {
   // TODO
   bindings: {
-    searchResults: '<'
+    searchResults: '<',
+    setState: '<'
   },
   controller: function() {
     this.input = '',
