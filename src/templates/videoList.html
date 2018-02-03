@@ -1,3 +1,5 @@
 <ul class="video-list">
+  <button ng-click="$ctrl.pageBack()" class="backButton"><</button>
+  <button ng-click="$ctrl.pageForward()" class="forwardbutton">></button>
   <video-list-entry ng-repeat="video in $ctrl.videos" on-click="$ctrl.onClick" video="video"><h5><em>videoListEntry</em> component goes here</h5></video-list-entry>
 </ul>
